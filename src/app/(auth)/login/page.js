@@ -1,11 +1,18 @@
+'use client'
 import Link from 'next/link';
 import React from 'react';
 
 const Page = () => {
+
+    const handleGoindasboard = (e) => {
+        e.preventDefault();
+        window.location.href = "/user";
+    }
+
     return (
         <div className='flex items-center justify-center min-h-screen bg-[#ffffff]'>
             <div className='grid lg:grid-cols-2 gap-5 items-center bg-[#fbf8f0] w-11/12 sm:w-1/2 mx-auto rounded-xl border-2 shadow-lg'>
-                <form className='p-8' action="">
+                <form onSubmit={handleGoindasboard} className='p-8' action="">
                     <img className='w-20 mb-6' src="/Images/Auth/lion.png" alt="Logo" />
                     <h2 className='text-3xl font-semibold my-3'>Sign In Here</h2>
 
@@ -38,7 +45,7 @@ const Page = () => {
                         </div>
                         <Link href="/forgot-password" className='font-semibold text-[#000] hover:underline '>Forgot Password?</Link>
                     </div>
-                    <button className='w-full cursor-pointer bg-[#000] text-[#dcb66b] font-semibold py-3 rounded-md mt-4 hover:bg-[#333] transition duration-300'>Login</button>
+                    <button onClick={handleGoindasboard} className='w-full cursor-pointer bg-[#000] text-[#dcb66b] font-semibold py-3 rounded-md mt-4 hover:bg-[#333] transition duration-300'>Login</button>
                     <p className='text-center mt-4 text-sm text-gray-500'>Don't have an account? <Link href="/signup" className='font-semibold text-[#000] hover:underline'>Sign Up</Link></p>
                 </form>
                 {/* Right side image */}
